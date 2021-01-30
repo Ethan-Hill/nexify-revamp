@@ -15,7 +15,7 @@ import TrackLikedDate from "../components/Favorites/Items/TrackLikedDate"
 import TrackName from "../components/Favorites/Items/TrackName"
 import TrackOptions from "../components/Favorites/Items/TrackOptions"
 
-function Favorites({ favoriteTracks }) {
+function Favorites({ favoriteTracks, playlists }) {
   const [session] = useSession()
   const { addToast } = useToasts()
   const Router = useRouter()
@@ -45,6 +45,13 @@ function Favorites({ favoriteTracks }) {
         break
       case "atq":
         addToQueue(props.uri)
+        break
+      case "atp":
+        console.log(event.currentTarget.attributes["pid"].nodeValue)
+        addToPlaylist(
+          event.currentTarget.attributes["pid"].nodeValue,
+          props.uri
+        )
         break
       case "delete":
         deleteTrack(props.id)
@@ -99,6 +106,33 @@ function Favorites({ favoriteTracks }) {
       })
       .catch((err) => {
         addToast(`❌ Error adding the song to queue!, ${err}`, {
+          appearance: "error",
+          autoDismiss: true,
+        })
+        console.log(err)
+      })
+  }
+
+  const addToPlaylist = (id, uri) => {
+    axios
+      .post(
+        `https://api.spotify.com/v1/playlists/${id}/tracks`,
+        { uris: [uri] },
+        {
+          headers: {
+            Authorization: `Bearer ${session.user.accessToken}`,
+          },
+        }
+      )
+      .then((res) => {
+        addToast("🎉 Added the song to playlist!", {
+          appearance: "success",
+          autoDismiss: true,
+        })
+        return res.data
+      })
+      .catch((err) => {
+        addToast(`❌ Error adding the song to playlist!, ${err}`, {
           appearance: "error",
           autoDismiss: true,
         })
@@ -181,9 +215,19 @@ function Favorites({ favoriteTracks }) {
               Add To Queue
             </Item>
             <Separator />
-            <Submenu label="Submenu">
-              <Item>Sub Item 1</Item>
-              <Item>Sub Item 2</Item>
+            <Submenu label="Add to playlist">
+              {playlists.items.map((playlist) => {
+                return (
+                  <Item
+                    key={playlist.id}
+                    id="atp"
+                    pid={playlist.id}
+                    onClick={handleItemClick}
+                  >
+                    {playlist.name}
+                  </Item>
+                )
+              })}
             </Submenu>
             <Separator />
             <Item id="delete" onClick={handleItemClick}>
@@ -258,8 +302,21 @@ export async function getServerSideProps(context) {
       console.log(err.response.data)
     })
 
+  const playlists = await axios
+    .get("https://api.spotify.com/v1/me/playlists", {
+      headers: {
+        Authorization: `Bearer ${session.user.accessToken}`,
+      },
+    })
+    .then((res) => {
+      return res.data
+    })
+    .catch((err) => {
+      console.log(err.response.data)
+    })
+
   return {
-    props: { favoriteTracks },
+    props: { favoriteTracks, playlists },
   }
 }
 

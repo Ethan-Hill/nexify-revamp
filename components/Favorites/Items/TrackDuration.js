@@ -5,7 +5,7 @@ export default function TrackDuration({ duration }) {
     return minutes + ":" + (seconds < 10 ? "0" : "") + seconds
   }
   return (
-    <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+    <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500 lg:hidden">
       {millisToMinutesAndSeconds(duration)}
     </td>
   )

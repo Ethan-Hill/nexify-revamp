@@ -28,7 +28,7 @@ export default function Home() {
       <main className="flex flex-col items-center flex-1 w-full text-white justify-evenly">
         <section className="flex flex-wrap items-center w-full h-screen text-white justify-evenly">
           <div className="flex flex-col xl:mt-6 xl:text-center">
-            <h1 className="font-bold text-7xl ">
+            <h1 className="font-bold text-7xl lg:text-5xl">
               Welcome to <br />
               <span className="text-spotifyGreen">Nexify</span>
             </h1>
@@ -38,13 +38,13 @@ export default function Home() {
             {!session ? (
               <div>
                 <h2 className="mb-5 text-2xl">Start by signing in</h2>
-                <div className="flex items-center">
+                <div className="flex items-center justify-center">
                   <Login />
                 </div>
               </div>
             ) : null}
           </div>
-          <div className="p-4 m-4">
+          <div className="p-4 m-4 xl:hidden">
             <img src="/logo.png" alt="logo" />
           </div>
         </section>

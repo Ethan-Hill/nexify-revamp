@@ -5437,11 +5437,6 @@ react-refresh@0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react-toast-notification@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/react-toast-notification/-/react-toast-notification-1.1.4.tgz#c536ba1a55ff595348d0ff52838e04368a818685"
-  integrity sha512-xcIUO5TfpLCbMTTmvH2Z/u4Z0+qNXEMShINKLyY6vBbGxf+smtsF/XGptpYmtz3oR9fjjxSuL5czUMHAG5zhLw==
-
 react-toast-notifications@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/react-toast-notifications/-/react-toast-notifications-2.4.0.tgz#6213730bd1fe158fc01aeef200687ea94c5c5b24"
