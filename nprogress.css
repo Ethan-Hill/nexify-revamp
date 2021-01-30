@@ -1,0 +1,12 @@
+#nprogress .bar {
+  background: #00d56e !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #00d56e, 0 0 5px #00d56e;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #00d56e;
+  border-left-color: #00d56e;
+}
