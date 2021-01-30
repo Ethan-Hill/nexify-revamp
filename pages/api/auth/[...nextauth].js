@@ -1,13 +1,13 @@
 /* eslint-disable no-param-reassign */
-import axios from "axios";
-import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import axios from "axios"
+import NextAuth from "next-auth"
+import Providers from "next-auth/providers"
 
 const options = {
   providers: [
     Providers.Spotify({
       scope:
-        "user-read-email playlist-modify-public playlist-modify-private user-read-private user-read-playback-state user-modify-playback-state playlist-modify-public playlist-modify-private user-top-read",
+        "user-read-email playlist-modify-public playlist-modify-private user-read-private user-read-playback-state user-library-modify user-modify-playback-state user-library-read playlist-modify-public playlist-modify-private user-top-read",
       clientId: process.env.SPOTIFY_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
       profile(profile) {
@@ -16,16 +16,16 @@ const options = {
           name: profile.display_name,
           email: profile.email,
           image: profile.images?.[0]?.url,
-        };
+        }
       },
     }),
   ],
   session: {
     jwt: true,
-    maxAge: 1 * 60 * 60,
+    maxAge: 1 * 60 * 30,
   },
   jwt: {
-    maxAge: 1 * 60 * 60,
+    maxAge: 1 * 60 * 30,
     secret: process.env.JWT_SCERET,
     encryption: true,
     signingKey:
@@ -36,10 +36,10 @@ const options = {
   callbacks: {
     jwt: async (token, user, account) => {
       if (user) {
-        token.accessToken = account.accessToken;
-        token.refreshToken = account.refreshToken;
+        token.accessToken = account.accessToken
+        token.refreshToken = account.refreshToken
       }
-      return Promise.resolve(token);
+      return Promise.resolve(token)
     },
     session: async (session, token) => {
       await axios
@@ -50,16 +50,16 @@ const options = {
         })
         .then((response) => (session.user.profile = response.data))
         .catch(() => {
-          return;
-        });
+          return
+        })
 
-      session.user.accessToken = token.accessToken;
-      session.user.refreshToken = token.refreshToken;
-      return Promise.resolve(session);
+      session.user.accessToken = token.accessToken
+      session.user.refreshToken = token.refreshToken
+      return Promise.resolve(session)
     },
     redirect: async () => {
-      return Promise.resolve("/");
+      return Promise.resolve("/")
     },
   },
-};
-export default (req, res) => NextAuth(req, res, options);
+}
+export default (req, res) => NextAuth(req, res, options)

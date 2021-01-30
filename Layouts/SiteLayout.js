@@ -1,6 +1,8 @@
-import Head from "next/head";
-import TopBar from "../components/Navigation/TopBar";
-import Drawer from "../components/Navigation/Drawer";
+import { ToastProvider } from "react-toast-notifications"
+import Head from "next/head"
+
+import Drawer from "../components/Navigation/Drawer"
+import TopBar from "../components/Navigation/TopBar"
 
 export default function SiteLayout({ children }) {
   return (
@@ -25,12 +27,34 @@ export default function SiteLayout({ children }) {
           name="viewport"
           content="minimum-scale=1, maximum-scale=5 initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
         />
+        <script
+          src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+          defer
+        ></script>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.26/dist/shoelace/shoelace.css"
+        />
+        <script
+          type="module"
+          src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.26/dist/shoelace/shoelace.esm.js"
+        ></script>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.26/themes/dark.css"
+        ></link>
       </Head>
       <TopBar />
       <div className="flex">
         <Drawer />
-        {children}
+        <ToastProvider
+          autoDismiss
+          autoDismissTimeout={6000}
+          placement="top-right"
+        >
+          <sl-theme name="dark">{children}</sl-theme>
+        </ToastProvider>
       </div>
     </div>
-  );
+  )
 }

@@ -1,37 +1,34 @@
-import "tailwindcss/tailwind.css";
-import "nprogress/nprogress.css";
-import "../nprogress.css";
+import "tailwindcss/tailwind.css"
+import "nprogress/nprogress.css"
+import "../nprogress.css"
 
-import NProgress from "nprogress";
-import SiteLayout from "../Layouts/SiteLayout";
-import Router from "next/router";
-import { setOptions, getSession, Provider } from "next-auth/client";
+import NProgress from "nprogress"
+import SiteLayout from "../Layouts/SiteLayout"
+import Router from "next/router"
+import { setOptions, getSession, Provider } from "next-auth/client"
 
-Router.events.on("routeChangeStart", () => NProgress.start());
-Router.events.on("routeChangeComplete", () => NProgress.done());
-Router.events.on("routeChangeError", () => NProgress.done());
+Router.events.on("routeChangeStart", () => NProgress.start())
+Router.events.on("routeChangeComplete", () => NProgress.done())
+Router.events.on("routeChangeError", () => NProgress.done())
 
-setOptions({ site: "http://localhost:3000" });
+setOptions({ site: "http://localhost:3000" })
 
 function App({ Component, pageProps, session }) {
   return (
-    <Provider
-      session={session}
-      options={{ clientMaxAge: 60 * 60, keepAlive: 5 * 60 }}
-    >
+    <Provider session={session} options={{ clientMaxAge: 60 * 30 }}>
       <SiteLayout>
         <Component {...pageProps} />
       </SiteLayout>
     </Provider>
-  );
+  )
 }
 
 App.getInitialProps = async (context) => {
-  const session = await getSession(context);
+  const session = await getSession(context)
 
   return {
     session,
-  };
-};
+  }
+}
 
-export default App;
+export default App

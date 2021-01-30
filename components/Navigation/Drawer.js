@@ -1,20 +1,20 @@
-import Logo from "./Items/TopBar/Logo";
-import Logout from "./Items/Drawer/Items/Logout";
-import Playlists from "./Items/Drawer/Items/Playlists";
-import Home from "./Items/Drawer/Items/Home";
-import Favorites from "./Items/Drawer/Items/Favorites";
-import Settings from "./Items/Drawer/Items/Settings";
+import Logo from "./Items/TopBar/Logo"
+import Logout from "./Items/Drawer/Items/Logout"
+import Playlists from "./Items/Drawer/Items/Playlists"
+import Home from "./Items/Drawer/Items/Home"
+import Favorites from "./Items/Drawer/Items/Favorites"
+import Settings from "./Items/Drawer/Items/Settings"
 
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/client";
+import { useRouter } from "next/router"
+import { useSession } from "next-auth/client"
 
 export default function Drawer() {
-  const [session, loading] = useSession();
-  const Router = useRouter();
+  const [session, loading] = useSession()
+  const Router = useRouter()
 
   if (session) {
     return (
-      <aside className="flex flex-col items-center justify-between w-32 h-screen bg-navigationBlue">
+      <aside className="flex flex-col items-center justify-between w-32 bg-navigationBlue">
         <Logo />
         <div className="flex flex-col items-center">
           <Home route={Router.pathname} />
@@ -26,10 +26,10 @@ export default function Drawer() {
           <Logout />
         </div>
       </aside>
-    );
+    )
   }
   return (
-    <aside className="flex flex-col items-center justify-between w-32 h-screen bg-navigationBlue">
+    <aside className="flex flex-col items-center justify-between w-32 bg-navigationBlue">
       <Logo />
       <div className="flex flex-col items-center">
         <Home route={Router.pathname} />
@@ -38,5 +38,5 @@ export default function Drawer() {
       </div>
       <div></div>
     </aside>
-  );
+  )
 }
