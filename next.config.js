@@ -12,7 +12,7 @@ const settings = {
   pwa: {
     dest: "public",
     register: true,
-    scope: "/src",
+    scope: "/",
     publicExcludes: ["!robots.txt", "!sitemap.xml.gz"],
   },
 };
