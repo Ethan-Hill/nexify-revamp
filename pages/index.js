@@ -1,6 +1,20 @@
 import Head from "next/head"
+import { useRouter } from "next/router"
+import { useToasts } from "react-toast-notifications"
+import { useEffect } from "react"
 
 export default function Home() {
+  const Router = useRouter()
+  const { addToast } = useToasts()
+  useEffect(() => {
+    if (Router.query.error) {
+      addToast(`❌ Error, Not logged In!`, {
+        appearance: "error",
+        autoDismiss: true,
+      })
+    }
+  }, [])
+
   return (
     <div className="flex flex-col w-full h-screen bg-backgroundBlue">
       <Head>
@@ -15,7 +29,6 @@ export default function Home() {
             </h1>
             <h2 className="mt-8 text-4xl font-semibold">Spotify All In One</h2>
           </div>
-
           <div className="p-4 m-4">
             <img src="/logo.png" alt="logo" />
           </div>

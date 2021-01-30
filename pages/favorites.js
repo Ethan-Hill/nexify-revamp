@@ -1,5 +1,6 @@
 import { getSession, useSession } from "next-auth/client"
 import { useRouter } from "next/router"
+import { useToasts } from "react-toast-notifications"
 import axios from "axios"
 import Head from "next/head"
 
@@ -11,6 +12,7 @@ import TrackOptions from "../components/Favorites/Items/TrackOptions"
 
 function Favorites({ favoriteTracks }) {
   const Router = useRouter()
+  const { addToast } = useToasts()
   const [session, loading] = useSession()
   return (
     <div className="flex w-full h-screen bg-backgroundBlue">
@@ -22,7 +24,7 @@ function Favorites({ favoriteTracks }) {
           <h1 className="text-4xl font-bold ">Liked songs</h1>
         </div>
 
-        <div className="w-full h-screen mx-4 overflow-y-scroll scrollbar scrollbar-thumb-spotifyGreen scrollbar-track-transparent">
+        <div className="w-full h-screen mx-4 overflow-y-scroll">
           <div className="w-full py-2">
             <div className="inline-block w-full pt-3 overflow-hidden align-middle shadow shadow-dashboard">
               <table className="w-full">
@@ -78,6 +80,10 @@ function Favorites({ favoriteTracks }) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
+
+  if (!session) {
+    context.res.writeHead(302, { Location: "/?error=Not+Logged+In" }).end()
+  }
 
   const favoriteTracks = await axios
     .get("https://api.spotify.com/v1/me/tracks", {

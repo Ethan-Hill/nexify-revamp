@@ -1,4 +1,4 @@
-import Logo from "./Items/TopBar/Logo"
+import Logo from "./Items/Drawer/Items/Logo"
 import Logout from "./Items/Drawer/Items/Logout"
 import Playlists from "./Items/Drawer/Items/Playlists"
 import Home from "./Items/Drawer/Items/Home"

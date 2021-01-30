@@ -23,7 +23,5 @@
     "tailwindcss": "^2.0.2",
     "typeface-poppins": "^1.1.13"
   },
-  "devDependencies": {
-    "tailwind-scrollbar": "^1.2.2"
-  }
+  "devDependencies": {}
 }

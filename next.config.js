@@ -1,4 +1,4 @@
-const withPWA = require("next-pwa");
+const withPWA = require("next-pwa")
 
 const settings = {
   functions: {
@@ -15,7 +15,7 @@ const settings = {
     scope: "/",
     publicExcludes: ["!robots.txt", "!sitemap.xml.gz"],
   },
-};
+}
 
 module.exports =
-  process.env.NODE_ENV === "development" ? settings : withPWA(settings);
+  process.env.NODE_ENV === "development" ? settings : withPWA(settings)

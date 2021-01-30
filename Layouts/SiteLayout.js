@@ -44,9 +44,10 @@ export default function SiteLayout({ children }) {
           href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.26/themes/dark.css"
         ></link>
       </Head>
-      <TopBar />
+
       <div className="flex">
         <Drawer />
+        <TopBar />
         <ToastProvider
           autoDismiss
           autoDismissTimeout={6000}
