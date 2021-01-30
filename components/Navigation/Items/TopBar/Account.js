@@ -5,15 +5,15 @@ export default function Account() {
   const [session, loading] = useSession();
   if (!session) {
     return (
-      <div className="flex items-center justify-end flex-1 mr-52">
+      <div className="flex items-center justify-end flex-1 mr-52 xl:mr-2">
         <Login />
       </div>
     );
   }
 
   return (
-    <div className="flex items-center justify-end flex-1 text-white mr-52 sm:mr-2">
-      <h1 className="sm:hidden">{session.user.name}</h1>
+    <div className="flex items-center justify-end flex-1 text-white mr-52 xl:mr-2">
+      <h1 className="lg:hidden">{session.user.name}</h1>
       {
         //Check if message failed
         session.user.image ? (

@@ -6,16 +6,16 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
-      <main className="flex items-center justify-around flex-1 w-full text-white">
-        <div className="flex flex-col">
-          <h1 className="font-bold text-7xl">
+      <main className="flex flex-wrap items-center flex-1 w-full text-white justify-evenly">
+        <div className="flex flex-col xl:mt-6 xl:text-center">
+          <h1 className="font-bold text-7xl ">
             Welcome to <br />
             <span className="text-spotifyGreen">Nexify</span>
           </h1>
           <h2 className="mt-8 text-4xl font-semibold">Spotify All In One</h2>
         </div>
 
-        <div className="p-4 bg-white">
+        <div className="p-4 m-4 bg-white">
           <img
             src="https://via.placeholder.com/700x400.png"
             alt="placeholder"
