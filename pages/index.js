@@ -38,7 +38,7 @@ export default function Home() {
             {!session ? (
               <div>
                 <h2 className="mb-5 text-2xl">Start by signing in</h2>
-                <div className="flex items-center justify-center">
+                <div className="flex items-center xl:justify-center">
                   <Login />
                 </div>
               </div>
