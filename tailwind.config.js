@@ -1,4 +1,4 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+const defaultTheme = require("tailwindcss/defaultTheme")
 
 module.exports = {
   purge: ["./pages/**/*.js", "./components/**/*.js"],
@@ -57,5 +57,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
-};
+  plugins: [require("tailwind-scrollbar")],
+}

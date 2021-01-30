@@ -22,5 +22,8 @@
     "react-toast-notifications": "^2.4.0",
     "tailwindcss": "^2.0.2",
     "typeface-poppins": "^1.1.13"
+  },
+  "devDependencies": {
+    "tailwind-scrollbar": "^1.2.2"
   }
 }

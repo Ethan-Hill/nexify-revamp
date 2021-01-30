@@ -22,7 +22,7 @@ function Favorites({ favoriteTracks }) {
           <h1 className="text-4xl font-bold ">Liked songs</h1>
         </div>
 
-        <div className="w-full h-screen mx-4 overflow-y-scroll">
+        <div className="w-full h-screen mx-4 overflow-y-scroll scrollbar scrollbar-thumb-spotifyGreen scrollbar-track-transparent">
           <div className="w-full py-2">
             <div className="inline-block w-full pt-3 overflow-hidden align-middle shadow shadow-dashboard">
               <table className="w-full">
