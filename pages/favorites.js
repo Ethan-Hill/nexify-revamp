@@ -29,13 +29,22 @@ function Favorites({ favoriteTracks, playlists }) {
   })
 
   function displayMenu(e) {
-    console.log(e.target.parentElement)
-    show(e, {
-      props: {
-        id: e.target.parentElement.id,
-        uri: e.target.parentElement.attributes["uri"].nodeValue,
-      },
-    })
+    try {
+      show(e, {
+        props: {
+          id: e.target.parentElement.id,
+          uri: e.target.parentElement.attributes["uri"].nodeValue,
+        },
+      })
+    } catch {
+      addToast(
+        `❌ Error opening menu, Please check you have a active spotify device and try to avoid right clicking content.`,
+        {
+          appearance: "error",
+          autoDismiss: true,
+        }
+      )
+    }
   }
 
   function handleItemClick({ event, props }) {
@@ -78,10 +87,13 @@ function Favorites({ favoriteTracks, playlists }) {
         return res.data
       })
       .catch((err) => {
-        addToast(`❌ Error playing the song!, ${err}`, {
-          appearance: "error",
-          autoDismiss: true,
-        })
+        addToast(
+          `❌ Error playing the song!, ${err}. Please check you have a active spotify device`,
+          {
+            appearance: "error",
+            autoDismiss: true,
+          }
+        )
         console.log(err)
       })
   }
@@ -105,10 +117,13 @@ function Favorites({ favoriteTracks, playlists }) {
         return res.data
       })
       .catch((err) => {
-        addToast(`❌ Error adding the song to queue!, ${err}`, {
-          appearance: "error",
-          autoDismiss: true,
-        })
+        addToast(
+          `❌ Error adding the song to queue!, ${err}. Please check you have a active spotify device`,
+          {
+            appearance: "error",
+            autoDismiss: true,
+          }
+        )
         console.log(err)
       })
   }
