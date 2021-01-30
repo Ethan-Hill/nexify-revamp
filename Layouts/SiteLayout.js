@@ -27,6 +27,7 @@ export default function SiteLayout({ children }) {
           name="viewport"
           content="minimum-scale=1, maximum-scale=5 initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
         />
+        <link rel="apple-touch-icon" href="/logo.png"></link>
         <script
           src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
           defer

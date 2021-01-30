@@ -15,6 +15,7 @@
     {
       "src": "logo.png",
       "sizes": "144x144",
+      "purpose": "any maskable",
       "type": "image/png"
     },
     {
