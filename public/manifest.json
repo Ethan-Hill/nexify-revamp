@@ -4,11 +4,22 @@
   "lang": "en-GB",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#151c3c",
+  "theme_color": "#00D56E",
+  "background_color": "#1D1837",
   "icons": [
+    {
+      "src": "logo.ico",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
     {
       "src": "logo.png",
       "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "largelogo.png",
+      "sizes": "513x818",
       "type": "image/png"
     }
   ]
