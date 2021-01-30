@@ -12,7 +12,9 @@ export default function Home() {
             Welcome to <br />
             <span className="text-spotifyGreen">Nexify</span>
           </h1>
-          <h2 className="mt-8 text-4xl font-semibold">Spotify All In One</h2>
+          <h2 className="mt-8 text-4xl font-semibold">
+            Spotify All In One test
+          </h2>
         </div>
 
         <div className="p-4 m-4 bg-white">
