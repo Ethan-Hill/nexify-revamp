@@ -302,7 +302,7 @@ export async function getServerSideProps(context) {
 
   if (!session) {
     context.res.writeHead(302, { Location: "/?error=Not+Logged+In" }).end()
-    return
+    return { props: {} }
   }
 
   const favoriteTracks = await axios
