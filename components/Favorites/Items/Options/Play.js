@@ -1,4 +1,4 @@
-export default function ({ handleClick, track }) {
+export default function Play({ handleClick, track }) {
   return (
     <sl-menu-item id="play" onClick={handleClick}>
       Play<sl-icon slot="prefix" name="play-fill"></sl-icon>

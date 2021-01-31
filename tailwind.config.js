@@ -27,6 +27,7 @@ module.exports = {
         iconColor: "#6A677C",
         buttonColor: "#211D3C",
         spotifyGreen: "#00D56E",
+        playlistContainer: "#362F62",
       },
       spacing: {
         13: "3.25rem",

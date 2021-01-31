@@ -10,3 +10,7 @@
   border-top-color: #00d56e;
   border-left-color: #00d56e;
 }
+
+.icon-button-color sl-icon-button::part(base):hover {
+  color: #00d56e;
+}
