@@ -1,14 +1,10 @@
-import Login from "./Items/Login";
-import { useSession } from "next-auth/client";
+import Login from "./Items/Login"
+import { useSession } from "next-auth/client"
 
 export default function Account() {
-  const [session, loading] = useSession();
+  const [session, loading] = useSession()
   if (!session) {
-    return (
-      <div className="flex items-center justify-end flex-1 mr-52 xl:mr-2">
-        <Login />
-      </div>
-    );
+    return null
   }
 
   return (
@@ -45,5 +41,5 @@ export default function Account() {
         )
       }
     </div>
-  );
+  )
 }
