@@ -7,7 +7,7 @@ import Play from "./Options/Play"
 import Delete from "./Options/Delete"
 import AddToQueue from "./Options/AddToQueue"
 
-export default function TrackOptions({ track }) {
+export default function PlaylistOptions({ playlist }) {
   const [session] = useSession()
   const Router = useRouter()
   const { addToast } = useToasts()

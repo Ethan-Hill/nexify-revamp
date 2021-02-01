@@ -1,7 +1,7 @@
 import { getSession, useSession } from "next-auth/client"
 import { useToasts } from "react-toast-notifications"
 import { useRouter } from "next/router"
-import { Menu, Item, Separator, Submenu, useContextMenu } from "react-contexify"
+import { useContextMenu } from "react-contexify"
 import "react-contexify/dist/ReactContexify.css"
 
 import axios from "axios"
@@ -14,6 +14,7 @@ import TrackDuration from "../components/Favorites/Items/TrackDuration"
 import TrackLikedDate from "../components/Favorites/Items/TrackLikedDate"
 import TrackName from "../components/Favorites/Items/TrackName"
 import TrackOptions from "../components/Favorites/Items/TrackOptions"
+import Menu from "../components/Favorites/Menu/Menu"
 
 function Favorites({ favoriteTracks, playlists }) {
   const [session] = useSession()
@@ -37,13 +38,7 @@ function Favorites({ favoriteTracks, playlists }) {
         },
       })
     } catch {
-      addToast(
-        `❌ Error opening menu, Please check you have a active spotify device and try to avoid right clicking content.`,
-        {
-          appearance: "error",
-          autoDismiss: true,
-        }
-      )
+      return null
     }
   }
 
@@ -222,33 +217,11 @@ function Favorites({ favoriteTracks, playlists }) {
 
           <FavoritesPlay handleClick={playAll} />
 
-          <Menu id={MENU_ID}>
-            <Item id="play" onClick={handleItemClick}>
-              Play
-            </Item>
-            <Item id="atq" onClick={handleItemClick}>
-              Add To Queue
-            </Item>
-            <Separator />
-            <Submenu label="Add to playlist">
-              {playlists.items.map((playlist) => {
-                return (
-                  <Item
-                    key={playlist.id}
-                    id="atp"
-                    pid={playlist.id}
-                    onClick={handleItemClick}
-                  >
-                    {playlist.name}
-                  </Item>
-                )
-              })}
-            </Submenu>
-            <Separator />
-            <Item id="delete" onClick={handleItemClick}>
-              Delete
-            </Item>
-          </Menu>
+          <Menu
+            handleItemClick={handleItemClick}
+            playlists={playlists}
+            MENU_ID={MENU_ID}
+          />
         </div>
         <div className="w-full h-screen mx-4 overflow-y-scroll">
           <div className="w-full py-2">
