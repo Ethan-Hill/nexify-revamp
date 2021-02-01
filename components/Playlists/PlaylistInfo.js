@@ -1,6 +1,13 @@
+import { useRouter } from "next/router"
+
 export default function PlaylistInfo({ playlist }) {
+  const Router = useRouter()
+
   return (
-    <div className="flex">
+    <div
+      className="flex w-full cursor-pointer"
+      onClick={() => Router.push(`/playlists/${playlist.id}`)}
+    >
       <img
         src={playlist.images[0].url}
         alt="Playlist image"

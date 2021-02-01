@@ -250,8 +250,7 @@ function playlists({ playlists }) {
               return (
                 <div
                   key={playlist.id}
-                  className="flex justify-between w-11/12 p-3 my-2 rounded shadow cursor-pointer bg-playlistContainer"
-                  onClick={() => Router.push(`/playlists/${playlist.id}`)}
+                  className="flex justify-between w-11/12 p-3 my-2 rounded shadow bg-playlistContainer"
                 >
                   <PlaylistInfo playlist={playlist} />
                   <div className="flex items-center justify-center w-32 md:hidden">
