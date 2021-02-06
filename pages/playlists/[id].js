@@ -39,7 +39,7 @@ function playlists({ playlist }) {
                         key={track.track.id}
                         id={track.track.id}
                         uri={track.track.uri}
-                        className="text-white hover:bg-gray-900"
+                        className="text-white hover:bg-gray-900 h-28"
                       >
                         <TrackName id={track.track.id} track={track.track} />
                         <TrackArtists

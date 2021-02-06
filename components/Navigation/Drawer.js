@@ -33,8 +33,6 @@ export default function Drawer() {
       <Logo />
       <div className="flex flex-col items-center">
         <Home route={Router.pathname} />
-        <Favorites route={Router.pathname} />
-        <Playlists route={Router.pathname} />
       </div>
       <div></div>
     </aside>

@@ -250,7 +250,7 @@ function playlists({ playlists }) {
               return (
                 <div
                   key={playlist.id}
-                  className="flex justify-between w-11/12 p-3 my-2 rounded shadow bg-playlistContainer"
+                  className="flex justify-between w-11/12 p-3 my-2 transition rounded shadow bg-playlistContainer hover:bg-gray-900"
                 >
                   <PlaylistInfo playlist={playlist} />
                   <div className="flex items-center justify-center w-32 md:hidden">
