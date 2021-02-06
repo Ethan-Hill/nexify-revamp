@@ -21,12 +21,12 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="flex flex-col w-full h-screen bg-backgroundBlue">
+    <div className="flex flex-col w-full h-screen bg-white dark:bg-backgroundBlue">
       <Head>
         <title>Home</title>
       </Head>
-      <main className="flex flex-col items-center flex-1 w-full text-white justify-evenly">
-        <section className="flex flex-wrap items-center w-full h-screen text-white justify-evenly">
+      <main className="flex flex-col items-center flex-1 w-full dark:text-white justify-evenly">
+        <section className="flex flex-wrap items-center w-full h-screen dark:text-white justify-evenly">
           <div className="flex flex-col xl:mt-6 xl:text-center">
             <h1 className="font-bold text-7xl lg:text-5xl">
               Welcome to <br />

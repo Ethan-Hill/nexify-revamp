@@ -5,6 +5,7 @@ import "../nprogress.css"
 import NProgress from "nprogress"
 import SiteLayout from "../Layouts/SiteLayout"
 import Router from "next/router"
+import { ThemeProvider } from "next-themes"
 import { setOptions, getSession, Provider } from "next-auth/client"
 
 Router.events.on("routeChangeStart", () => NProgress.start())
@@ -16,9 +17,11 @@ setOptions({ site: "http://localhost:3000" })
 function App({ Component, pageProps, session }) {
   return (
     <Provider session={session} options={{ clientMaxAge: 60 * 30 }}>
-      <SiteLayout>
-        <Component {...pageProps} />
-      </SiteLayout>
+      <ThemeProvider attribute="class">
+        <SiteLayout>
+          <Component {...pageProps} />
+        </SiteLayout>
+      </ThemeProvider>
     </Provider>
   )
 }

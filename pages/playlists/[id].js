@@ -17,13 +17,15 @@ function playlists({ playlist }) {
   const Router = useRouter()
 
   return (
-    <div className="flex w-full h-screen bg-backgroundBlue">
+    <div className="flex w-full h-screen bg-white dark:bg-backgroundBlue">
       <Head>
         <title>{playlist.name}</title>
       </Head>
-      <main className="flex flex-col items-center justify-center flex-1 w-full mt-24 text-white">
+      <main className="flex flex-col items-center justify-center flex-1 w-full mt-24 sark:text-white">
         <div className="flex items-center xl:mt-6 xl:text-center">
-          <h1 className="text-4xl font-bold ">{playlist.name}</h1>
+          <h1 className="text-4xl font-bold text-black dark:text-white">
+            {playlist.name}
+          </h1>
         </div>
         <div className="w-full h-screen mx-4 overflow-y-scroll">
           <div className="w-full py-2">
@@ -39,7 +41,7 @@ function playlists({ playlist }) {
                         key={track.track.id}
                         id={track.track.id}
                         uri={track.track.uri}
-                        className="text-white hover:bg-gray-900 h-28"
+                        className="text-white darl:text-white hover:bg-gray-100 dark:hover:bg-gray-900 h-28"
                       >
                         <TrackName id={track.track.id} track={track.track} />
                         <TrackArtists

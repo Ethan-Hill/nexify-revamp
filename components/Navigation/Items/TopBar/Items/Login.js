@@ -6,7 +6,7 @@ export default function Login() {
   if (!session) {
     return (
       <div
-        className="flex items-center justify-center w-32 h-12 transition ease-in-out transform rounded-lg cursor-pointer hover:shadow-md bg-buttonColor duration-250 hover:-translate-y-0.5 hover:scale-105"
+        className="flex items-center justify-center w-32 h-12 transition ease-in-out transform rounded-lg cursor-pointer hover:shadow-md dark:border-transparent dark:bg-buttonColor border  duration-250 hover:-translate-y-0.5 hover:scale-105"
         onClick={() => signIn("spotify")}
       >
         <svg

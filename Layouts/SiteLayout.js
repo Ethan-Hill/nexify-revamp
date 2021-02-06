@@ -1,10 +1,13 @@
 import { ToastProvider } from "react-toast-notifications"
+import { useTheme } from "next-themes"
 import Head from "next/head"
 
 import Drawer from "../components/Navigation/Drawer"
 import TopBar from "../components/Navigation/TopBar"
+import Switch from "../components/Switch"
 
 export default function SiteLayout({ children }) {
+  const { theme, setTheme } = useTheme()
   return (
     <div>
       <Head>
@@ -54,7 +57,8 @@ export default function SiteLayout({ children }) {
           autoDismissTimeout={6000}
           placement="top-right"
         >
-          <sl-theme name="dark">{children}</sl-theme>
+          <sl-theme name={theme}>{children}</sl-theme>
+          <Switch />
         </ToastProvider>
       </div>
     </div>

@@ -1,12 +1,12 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"
 
 export default function Playlists({ route }) {
-  const Router = useRouter();
+  const Router = useRouter()
 
   if (route === "/playlists") {
     return (
       <div
-        className="flex items-center mb-12 justify-center w-16 h-16 transition ease-in-out transform rounded-lg cursor-pointer hover:shadow-md bg-buttonColor duration-250 hover:-translate-y-0.5 hover:scale-105"
+        className="flex items-center mb-12 justify-center w-16 h-16 transition ease-in-out transform rounded-lg cursor-pointer hover:shadow-md bg-white border dark:border-transparent dark:bg-buttonColor duration-250 hover:-translate-y-0.5 hover:scale-105"
         onClick={() => Router.push("/playlists")}
       >
         <svg
@@ -22,12 +22,12 @@ export default function Playlists({ route }) {
           ></path>
         </svg>
       </div>
-    );
+    )
   }
 
   return (
     <div
-      className="flex items-center mb-12 justify-center w-12 h-12 transition ease-in-out transform rounded-lg cursor-pointer hover:shadow-md bg-buttonColor duration-250 hover:-translate-y-0.5 hover:scale-105"
+      className="flex items-center mb-12 justify-center w-12 h-12 transition ease-in-out transform rounded-lg cursor-pointer hover:shadow-md bg-white border dark:border-transparent dark:bg-buttonColor duration-250 hover:-translate-y-0.5 hover:scale-105"
       onClick={() => Router.push("/playlists")}
     >
       <svg
@@ -39,9 +39,9 @@ export default function Playlists({ route }) {
       >
         <path
           d="M15 18H3V16H15V18ZM21 13H3V11H21V13ZM15 8H3V6H15V8Z"
-          fill="#FFFFFF"
+          fill="#808080 "
         ></path>
       </svg>
     </div>
-  );
+  )
 }

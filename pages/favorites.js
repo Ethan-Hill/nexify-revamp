@@ -207,11 +207,11 @@ function Favorites({ favoriteTracks, playlists }) {
   }
 
   return (
-    <div className="flex w-full h-screen bg-backgroundBlue">
+    <div className="flex w-full h-screen bg-white dark:bg-backgroundBlue">
       <Head>
         <title>Favorites</title>
       </Head>
-      <main className="flex flex-col items-center justify-center flex-1 w-full mt-24 text-white">
+      <main className="flex flex-col items-center justify-center flex-1 w-full mt-24 dark:text-white">
         <div className="flex items-center xl:mt-6 xl:text-center">
           <h1 className="text-4xl font-bold ">Liked songs</h1>
 
@@ -238,7 +238,7 @@ function Favorites({ favoriteTracks, playlists }) {
                         key={track.track.id}
                         id={track.track.id}
                         uri={track.track.uri}
-                        className="text-white hover:bg-gray-900"
+                        className="dark:text-white hover:bg-gray-200 dark:hover:bg-gray-900"
                       >
                         <TrackName id={track.track.id} track={track.track} />
                         <TrackArtists

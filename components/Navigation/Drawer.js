@@ -14,7 +14,7 @@ export default function Drawer() {
 
   if (session) {
     return (
-      <aside className="flex flex-col items-center justify-between w-32 bg-navigationBlue">
+      <aside className="flex flex-col items-center justify-between w-32 bg-white border-r dark:border-transparent dark:bg-navigationBlue">
         <Logo />
         <div className="flex flex-col items-center">
           <Home route={Router.pathname} />
@@ -29,7 +29,7 @@ export default function Drawer() {
     )
   }
   return (
-    <aside className="flex flex-col items-center justify-between w-32 bg-navigationBlue">
+    <aside className="flex flex-col items-center justify-between w-32 bg-white border-r dark:border-transparent dark:bg-navigationBlue">
       <Logo />
       <div className="flex flex-col items-center">
         <Home route={Router.pathname} />

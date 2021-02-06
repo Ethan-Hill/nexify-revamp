@@ -10,7 +10,10 @@ export default function TrackName({ track }) {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <h1 style={{ width: "max-content", fontWeight: "bold" }}>
+        <h1
+          style={{ width: "max-content", fontWeight: "bold" }}
+          className="text-white"
+        >
           {track.name}
         </h1>
       </div>

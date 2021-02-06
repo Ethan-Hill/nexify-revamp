@@ -236,11 +236,11 @@ function playlists({ playlists }) {
   }
 
   return (
-    <div className="flex w-full h-screen bg-backgroundBlue">
+    <div className="flex w-full h-screen bg-white dark:bg-backgroundBlue">
       <Head>
         <title>Favorites</title>
       </Head>
-      <main className="flex flex-col items-center justify-center flex-1 w-full mt-24 text-white">
+      <main className="flex flex-col items-center justify-center flex-1 w-full mt-24 dark:text-white">
         <div className="flex items-center xl:mt-6 xl:text-center">
           <h1 className="text-4xl font-bold ">Playlists</h1>
         </div>
@@ -250,7 +250,7 @@ function playlists({ playlists }) {
               return (
                 <div
                   key={playlist.id}
-                  className="flex justify-between w-11/12 p-3 my-2 transition rounded shadow bg-playlistContainer hover:bg-gray-900"
+                  className="flex justify-between w-11/12 p-3 my-2 transition bg-white rounded shadow dark:bg-playlistContainer dark:hover:bg-gray-900 hover:bg-gray-100"
                 >
                   <PlaylistInfo playlist={playlist} />
                   <div className="flex items-center justify-center w-32 md:hidden">
