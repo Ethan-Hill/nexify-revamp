@@ -1,5 +1,6 @@
 import InfoButton from "../InfoButton"
 import InfoProperty from "../InfoProperty"
+import InfoTrack from "../InfoTrackList"
 
 export default function PlaylistDialog({ playlists }) {
   return (
@@ -15,6 +16,7 @@ export default function PlaylistDialog({ playlists }) {
           <sl-tab-panel name={playlist.id} key={playlist.id}>
             <div className="flex flex-col items-center">
               <InfoProperty title="ID" name={playlist.id} />
+              <InfoTrack playlist={playlist} />
               <InfoButton title="Link" link={playlist.external_urls.spotify} />
             </div>
           </sl-tab-panel>
