@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project
 
+## LIVE VERISON
+[Nexify Revamp](https://beta.nexify.xyz/)
+
 ## ENV
 
 ```env
