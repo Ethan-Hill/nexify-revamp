@@ -238,6 +238,7 @@ function Favorites({ favoriteTracks, playlists }) {
                         key={track.track.id}
                         id={track.track.id}
                         uri={track.track.uri}
+                        onDoubleClick={() => play(track.track.uri)}
                         className="dark:text-white hover:bg-gray-200 dark:hover:bg-gray-900"
                       >
                         <TrackName id={track.track.id} track={track.track} />
