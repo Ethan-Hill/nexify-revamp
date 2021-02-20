@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 export default function Playlists({ route }) {
   const Router = useRouter()
 
-  if (route === "/playlists") {
+  if (route === "/playlists" || route === "/playlists/[id]") {
     return (
       <div
         className="flex items-center mb-12 justify-center w-16 h-16 transition ease-in-out transform rounded-lg cursor-pointer hover:shadow-md bg-white border dark:border-transparent dark:bg-buttonColor duration-250 hover:-translate-y-0.5 hover:scale-105"

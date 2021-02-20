@@ -1,5 +1,5 @@
 import Head from "next/head"
-import Login from "../components/Navigation/Items/TopBar/Items/Login"
+import Login from "../components/Login"
 
 import Favorites from "../components/Navigation/Items/Drawer/Items/Favorites"
 import { useSession } from "next-auth/client"

@@ -7,6 +7,7 @@ import TrackName from "../../components/Playlist/TrackName"
 import TrackArtists from "../../components/Playlist/TrackArtists"
 import TrackDuration from "../../components/Playlist/TrackDuration"
 import TableHead from "../../components/Playlist/TableHead"
+import PlaylistPlay from "../../components/Playlist/PlaylistPlay"
 
 import axios from "axios"
 import Head from "next/head"
@@ -15,6 +16,35 @@ function playlists({ playlist }) {
   const [session] = useSession()
   const { addToast } = useToasts()
   const Router = useRouter()
+
+  const tracks = playlist.tracks.items.map((track) => track.track.uri)
+
+  const playAll = () => {
+    axios
+      .put(
+        "https://api.spotify.com/v1/me/player/play",
+        { uris: tracks },
+        {
+          headers: {
+            Authorization: `Bearer ${session.user.accessToken}`,
+          },
+        }
+      )
+      .then((res) => {
+        addToast("🎉 Playing your favorite tracks!", {
+          appearance: "success",
+          autoDismiss: true,
+        })
+        return res.data
+      })
+      .catch((err) => {
+        addToast(`❌ Error playing your favorite tracks!, ${err}`, {
+          appearance: "error",
+          autoDismiss: true,
+        })
+        console.log(err)
+      })
+  }
 
   return (
     <div className="flex w-full h-screen bg-white dark:bg-backgroundBlue">
@@ -26,6 +56,7 @@ function playlists({ playlist }) {
           <h1 className="text-4xl font-bold text-black dark:text-white">
             {playlist.name}
           </h1>
+          <PlaylistPlay handleClick={playAll} />
         </div>
         <div className="w-full h-screen mx-4 overflow-y-scroll">
           <div className="w-full py-2">

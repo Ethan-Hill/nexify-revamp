@@ -53,6 +53,9 @@ module.exports = {
         sm: { max: "639px" },
         // => @media (max-width: 639px) { ... }
       },
+      width: {
+        topBar: "calc(100% - 8rem)",
+      },
     },
   },
   variants: {
